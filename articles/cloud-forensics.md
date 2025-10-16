@@ -50,12 +50,14 @@ Instead of taking a machine offline, cloud forensics heavily relies on "live for
 
 ```mermaid
 flowchart TD
-    A[Incident Reported] --> B{Isolate Resources via Security Group Rules};
-    B --> C[Trigger Automated Lambda/Function to Collect Volatile Data];
-    C --> D[Take Point-in-Time Snapshots of Virtual Disks];
-    D --> E[Export All Relevant Logs (CloudTrail, VPC Flow Logs)];
-    E --> F[Analyze Evidence in a Secure Forensic VPC];
-    F --> G[Correlate Findings & Generate Report];
+    A([Incident Reported])
+    --> B{Isolate Resources<br>via Security Group Rules}
+
+    B --> C[Trigger Automated<br>Lambda/Function<br>to Collect Volatile Data]
+    C --> D[Take Point-in-Time<br>Snapshots of Virtual Disks]
+    D --> E[Export Relevant Logs:<br>CloudTrail, VPC Flow Logs]
+    E --> F[Analyze Evidence<br>in Secure Forensic VPC]
+    F --> G[Correlate Findings<br>& Generate Report]
 ```
 *A simplified workflow for an automated forensic response in the cloud.*
 
