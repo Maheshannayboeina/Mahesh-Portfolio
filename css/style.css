@@ -619,3 +619,178 @@ footer {
     margin-left: 0.5rem;
 }
 
+/* ADD THIS TO THE END of css/style.css */
+
+/* === ACTIVE NAV LINK STYLE === */
+.nav-link.active {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+}
+.nav-link.cta.active { /* Ensure CTA doesn't get an underline */
+    color: #fff;
+}
+.nav-link.cta.active::after {
+    display: none;
+}
+
+
+/* === TRYHACKME SHOWCASE STYLES (achievements.html) === */
+.thm-profile-showcase {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 2.5rem;
+    margin-bottom: 4rem;
+}
+.thm-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+.thm-pfp {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+}
+.thm-profile-info h1 {
+    font-family: var(--font-secondary);
+    color: #fff;
+    font-size: 2.5rem;
+}
+.thm-badge {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+.thm-profile-info p {
+    color: #8b949e;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+.thm-profile-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+.thm-profile-link:hover {
+    text-decoration: underline;
+}
+.thm-profile-link i {
+    font-size: 0.8em;
+    margin-left: 0.5rem;
+}
+
+.thm-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+.thm-stat-card {
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+}
+.stat-value {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.stat-label {
+    color: #8b949e;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* === CERTIFICATE GRID STYLES (achievements.html) === */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.cert-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.cert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+.cert-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: #010409;
+}
+.cert-info {
+    padding: 1.5rem;
+}
+.cert-info h4 {
+    color: #fff;
+    margin-bottom: 0.25rem;
+}
+.cert-info p {
+    color: #8b949e;
+    font-size: 0.9rem;
+}
+
+/* ADD THIS TO THE END of css/style.css (or replace the old active nav style) */
+
+/* === ENHANCED ACTIVE & HOVER NAV LINK STYLE === */
+
+/* 1. Base style for the link itself */
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 400;
+    position: relative; /* This is crucial for positioning the underline */
+    padding: 0.5rem 0; /* Add some padding to give the underline space */
+    transition: color 0.3s ease-in-out; /* Smoothly transition the text color */
+}
+
+/* 2. The animated underline itself (initially hidden) */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%; /* Start with zero width */
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease-in-out; /* Animate the width property */
+}
+
+/* 3. The trigger for the animation (when hovering OR when the link is active) */
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color); /* Change the text color */
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%; /* Animate the underline to full width */
+}
+
+/* 4. Special rule to ensure the CTA button doesn't get an underline */
+.nav-link.cta::after {
+    display: none;
+}
+.nav-link.cta:hover, .nav-link.cta.active {
+    color: #fff; /* Keep the text color white on the button */
+}
