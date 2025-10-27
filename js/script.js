@@ -2,6 +2,40 @@
 // We'll call it either on DOMContentLoaded or after the navbar is loaded.
 function initializeInteractiveElements() {
 
+    // in js/script.js, inside the initializeInteractiveElements function
+
+    // --- SWIPER JS FOR VIDEO SLIDER ---
+    if (document.querySelector('.swiper')) {
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            effect: 'coverflow', // Adds a cool 3D effect
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            loop: true, // Loops back to the beginning
+            
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+
+            // Autoplay configuration
+            autoplay: {
+                delay: 5000, // 5 seconds between slides
+                disableOnInteraction: false, // Autoplay will not be disabled after user interactions
+            },
+
+            // Pagination (the dots)
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    }
+
     // --- TYPED.JS FOR HERO SUBTITLE ---
     if (document.querySelector('.subtitle-typed')) {
         const typed = new Typed('.subtitle-typed', {
